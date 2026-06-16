@@ -1,0 +1,426 @@
+.admin__heading h2 {
+    text-align: center;
+    /* 見出しを中央に */
+    color: #8b7969;
+    font-size: 26px;
+    margin: 40px 0;
+}
+
+.admin__table-inner {
+    width: 100%;
+    border-collapse: collapse;
+    /* セル同士の隙間をなくす */
+    margin-top: 20px;
+}
+
+/* =========================================
+   1. ヘッダー (ロゴ中央・ボタン右端)
+   ========================================= */
+.header__inner {
+    max-width: 1230px;
+        margin: 0 auto;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: center;
+        /* ロゴを中央に配置 */
+        align-items: center;
+        position: relative;
+        /* ★重要：ナビを配置する基準点 */
+        min-height: 80px;
+}
+
+.header-nav {
+    position: absolute;
+        /* ★親の右端に固定 */
+        right: 40px;
+        top: 50%;
+        /* 上から50%の位置 */
+        transform: translateY(-50%);
+        /* 自身の高さ半分だけ戻して垂直中央に */
+        display: flex;
+        align-items: center;
+}
+
+.header-nav__button {
+    background-color: #fff;
+    border: 1px solid #e0dfde;
+    color: #8b7969;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap;
+    /* 必須：文字が縦に並ぶのを防ぐ */
+    transition: background-color 0.3s;
+}
+
+.header-nav__button:hover {
+    background-color: #fdfaf7;
+}
+
+/* =========================================
+   2. コンテンツの見出し・ユーティリティ
+   ========================================= */
+
+
+.admin__utilities {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    /* 下揃え */
+    margin-bottom: 10px;
+}
+
+.export-button {
+    background-color: #edeae7;
+        /* 少しだけ明るく */
+        color: #8b7969;
+        border: none;
+        padding: 8px 20px;
+        font-size: 14px;
+        border-radius: 2px;
+        cursor: pointer;
+}
+
+/* =========================================
+   3. 検索フォーム (横一列に固定)
+   ========================================= */
+.search-form {
+    display: flex;
+        align-items: center;
+        gap: 12px;
+        /* 項目間の間隔を少しタイトに */
+        margin-bottom: 35px;
+}
+
+.search-form__item {
+    flex: 1;
+        /* 基本的に全ての箱を均等に広げる */
+    }
+
+/* 個別幅設定 */
+.search-form__item:nth-child(1) {
+    flex:2.5;
+}
+
+/* お名前/メアドは広め */
+.search-form__item:nth-child(2) {
+flex:1;
+}
+
+/* 性別は固定 */
+.search-form__item:nth-child(3) {
+    flex: 2;
+}
+
+/* 2. 日付欄(nth-child(4))とセレクトボックスの両方に共通の矢印を適用 */
+.search-form__item:has(select),
+.search-form__item:nth-child(4) {
+    position: relative;
+    flex: 1.5;
+}
+
+/* 既存の ::after 設定を一つにまとめてスッキリさせる */
+.search-form__item:has(select)::after,
+.search-form__item:nth-child(4)::after {
+    content: "";
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 6px solid #e0dfde;
+        /* 見本通りのグレー三角 */
+        pointer-events: none;
+        z-index: 2;
+}
+
+/* 3. プレースホルダーの文字色をさらに見本に寄せる */
+.search-form__item-input::placeholder {
+    color: #ccc;
+    opacity: 1;
+}
+
+/* 日付 */
+
+.search-form__item-input,
+.search-form__item-select {
+background-color: #ffffff;
+    /* 見本に合わせて白 */
+    border: 1px solid #e0dfde;
+    color: #bfa68f;
+    /* 薄い茶色の文字 */
+    padding: 0 15px;
+    height: 45px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    appearance: none;
+
+}
+
+
+.search-form__item:has(select)::after {
+    content: "";
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 6px solid #e0dfde;
+        /* グレーの三角 */
+        pointer-events: none;
+}
+
+/* ボタン：高さを入力欄(45px)に完璧に合わせる */
+.search-form__button-submit,
+.search-form__button-reset {
+    height: 45px;
+    padding: 0 35px;
+    font-size: 16px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.search-form__button-submit {
+    background-color: #827465;
+}
+
+.search-form__button-reset {
+    background-color: #d9c6b0;
+}
+
+/* =========================================
+   4. データテーブル
+   ========================================= */
+.admin__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.admin__table th {
+    background-color: #8b7969;
+        /* 背景色（茶色） */
+        color: #fff;
+        /* ★ここを追加！文字を白にする */
+        font-weight: normal;
+        /* 文字の太さを標準に */
+        padding: 18px;
+        /* 余白を確保 */
+        text-align: left;
+        /* 文字を左寄せに */
+        white-space: nowrap;
+        /* 改行を防ぐ */
+    }
+
+/* ついでに、見出しの行全体の高さを確保 */
+.admin__table-row {
+    border-bottom: 1px solid #eee;
+}
+
+.admin__table th,
+.admin__table td {
+    padding: 15px;
+    text-align: left;
+    /* 下側にだけ薄いグレーの線を引く（見本スタイル） */
+    border-bottom: 1px solid #e0dfde;
+}
+
+.detail-button {
+    background: #fff;
+        border: 1px solid #f0efee;
+        /* より薄いグレーの枠 */
+        color: #d9c6b0;
+        padding: 6px 18px;
+        font-size: 12px;
+        border-radius: 2px;
+}
+
+/* テーブル全体の境界線を調整（文字を浮き立たせるため） */
+.admin__table-inner {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.detail-button:hover {
+    background: #fdfaf7;
+    color: #8b7969;
+}
+
+/* =========================================
+   5. ページネーション (右寄せ・横並び)
+   ========================================= */
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination li {
+    margin: 0;
+}
+
+.pagination li a,
+.pagination li span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid #e0dfde;
+    color: #8b7969;
+    text-decoration: none;
+    background-color: #fff;
+    margin-left: -1px;
+    /* 枠線を重ねて細く見せる */
+}
+
+.pagination li.active span {
+    background-color: #827465;
+    color: #fff;
+    border-color: #827465;
+}
+/* モーダル全体の背景（最初は隠す） */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+/* URLの末尾に #modal 等のIDがついた時に表示する仕組み */
+.modal:target {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* モーダルの白いボックス */
+.modal__content {
+    background: #fff;
+    width: 600px;
+    padding: 40px;
+    border-radius: 2px;
+    position: relative;
+}
+
+/* 閉じるボタン（×マーク） */
+.modal__close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    text-decoration: none;
+    color: #8b7969;
+    font-size: 24px;
+}
+.modal.is-open {
+    display: flex;
+}
+.modal__delete-wrapper {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.modal__delete-button {
+    background-color: #f44336;
+    /* 削除らしい赤色 */
+    color: #fff;
+    border: none;
+    padding: 10px 40px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: opacity 0.3s;
+}
+
+.modal__delete-button:hover {
+    opacity: 0.8;
+}
+.modal__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.modal__table th {
+    text-align: left;
+    width: 30%;
+    padding: 15px 0;
+    color: #8b7969;
+    font-weight: bold;
+}
+
+.modal__table td {
+    padding: 15px 0;
+    color: #8b7969;
+}
+
+/* 管理画面のメインコンテンツを中央に寄せる */
+.admin__content {
+    max-width: 1230px;
+    /* ヘッダーの幅と合わせる */
+    margin: 0 auto;
+    /* 左右中央寄せ */
+    padding: 0 40px 100px;
+}
+
+/* 検索フォームも中央寄せの枠内に広げる */
+.search-form__section {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+/* カレンダーアイコンを消す（Chrome, Edge, Safari用） */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+/* プレースホルダーの文字色を薄くする */
+.search-form__item-input::placeholder {
+    color: #e0dfde;
+    opacity: 1;
+}
+
+/* セレクトボックスの最初の項目（性別、お問い合わせの種類）も色を合わせる */
+.search-form__item-select {
+    color: #bfa68f;
+}
+
+.admin__table th {
+    background-color: #8b7969;
+    color: #fff !important;
+    /* 白文字を強制 */
+    font-weight: normal;
+}
+
+/* テーブルの一番下の線は不要な場合（デザインの好み） */
+.admin__table tr:last-child td {
+    border-bottom: none;
+}
+
+.admin__table-inner {
+    border: 1px solid #e0dfde;
+}

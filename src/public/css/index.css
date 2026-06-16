@@ -1,0 +1,273 @@
+/* --- 1. 全体のリセットと共通設定 --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff !important;
+    color: #8b7969;
+    font-family: "Garamond", "YuMincho", serif;
+    overflow-x: hidden;
+}
+
+/* --- 2. ヘッダー --- */
+header.header {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 30px 0!important;
+    width: 100%;
+}
+
+.header__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.header__logo {
+    color: #8b7969 !important;
+    font-size: 48px !important;
+    text-decoration: none;
+    font-family: "Garamond", serif;
+}
+
+/* --- 3. フォームレイアウト：基本 --- */
+.contact-form {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+.contact-form__heading h2 {
+    font-size: 32px;
+    text-align: center;    margin:0px 0 60px;
+}
+
+.form__group {
+display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    margin-bottom: 30px !important;
+}
+
+/* ラベルエリア：ここが縦並びを防ぐキモです */
+.form__group-title {
+display: flex !important;
+    /* 文字と※を横に並べる */
+    align-items: center !important;
+    /* 垂直方向を中央に */
+    width: 280px !important;
+    /* 幅をしっかり固定 */
+    flex-shrink: 0 !important;
+    /* ★絶対に幅を縮ませない */
+    white-space: nowrap !important;
+    /* ★絶対に改行させない */
+}
+
+/* ラベル内の「※」を赤く太く */
+.form__label--required {
+color: #ff0000 !important;
+    /* 混じりけのない赤 */
+    margin-left: 8px !important;
+    /* 文字との間に少し隙間 */
+    font-weight: bold !important;
+    display: inline-block !important;
+}
+
+.form__label--item {
+    display: inline-block !important;
+        color: #8b7969 !important;
+        font-weight: bold;
+    }
+
+
+.form__group-content {
+flex: 1 !important;
+    min-width: 0;
+}
+
+/* --- 4. 入力欄 --- */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    background-color: #f4f4f4 !important;
+    border: none !important;
+    padding: 18px !important;
+    color: #8b7969;
+    width: 100%;
+}
+
+/* お名前と電話番号の横並び */
+.form__input--name,
+.form__input--tel-group {
+    display: flex !important;
+    gap: 20px !important;
+    width: 100%;
+}
+
+.form__input--name input,
+.form__input--tel-group input {
+    flex: 1;
+}
+
+/* 性別のラジオボタン */
+.form__input--radio {
+    display: flex !important;
+    gap: 40px !important;
+    padding-top: 10px;
+}
+
+input[type="radio"] {
+    accent-color: #8b7969;
+    width: 20px;
+    height: 20px;
+}
+/* ボタンの親要素を中央揃えにする */
+.form__button {
+    text-align: center !important;
+    /* 中の要素を中央に寄せる */
+    width: 100% !important;
+    margin-top: 60px !important;
+    /* 上にゆとりを持たせる */
+    margin-bottom: 80px !important;
+    /* 下にも余白を作る */
+}
+
+/* --- 5. 確認ボタン --- */
+.form__button-submit {
+    display: inline-block !important;
+        /* 中央揃えを効かせるために必要 */
+        background-color: #8b7969 !important;
+        color: #ffffff !important;
+        padding: 18px 120px !important;
+        /* 横幅をたっぷり取る */
+        font-size: 18px !important;
+        border: none !important;
+        cursor: pointer;
+        transition: background-color 0.3s;
+}
+
+.form__button-submit:hover {
+    background-color: #7a6a5c !important;
+}
+
+::placeholder {
+    color: #b0a090 !important;
+    opacity: 1;
+}
+/* 確実に横並びにするための最強セット */
+.form .form__group {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    margin-bottom: 40px !important;
+    width: 100% !important;
+}
+
+/* ラベルが縦書きになるのを「絶対に」阻止する */
+.form .form__group-title {
+    width: 250px !important;
+    min-width: 250px !important;
+    flex-basis: 250px !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    /* 横に並べる */
+    align-items: center !important;
+    white-space: nowrap !important;
+    /* 折り返し禁止 */
+}
+
+/* ※を何が何でも赤くする */
+.form .form__label--required {
+    color: #ff0000 !important;
+    /* 真っ赤 */
+    display: inline-block !important;
+    margin-left: 5px !important;
+    visibility: visible !important;
+}
+
+/* ラベル文字をクッキリさせる */
+.form .form__label--item {
+    color: #8b7969 !important;
+    font-size: 16px !important;
+    display: inline-block !important;
+}
+/* --- セレクトボックスの調整：余計な余白を消して矢印を大きく --- */
+.form__input--select select {
+    appearance: none;
+    /* ブラウザ標準の矢印を一旦消す */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-color: #f4f4f4 !important;
+    border: none !important;
+    /* 既存の黒い太枠を消す */
+    padding: 18px !important;
+    width: 100%;
+    color: #8b7969;
+    cursor: pointer;
+
+    /* 自前の矢印マークを背景として入れる */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238b7969'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    /* 右端から20pxの位置に配置 */
+    background-size: 30px;
+    /* ここで矢印の大きさを調整（30pxで大きく） */
+}
+
+/* 枠線の消去を念押し */
+.form__input--select {
+    position: relative;
+    width: 100%;
+}
+
+.form__input--select select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* 右端から 10px の位置に固定します */
+        background-position: right 10px center !important;
+
+    /* 横幅を短く設定（お好みの長さに調整してください） */
+    width: 60% !important;
+
+    background-color: #f4f4f4 !important;
+    border: none !important;
+    padding: 18px !important;
+    padding-right: 60px !important;
+    /* 矢印と重ならないように右余白を確保 */
+    color: #8b7969;
+    cursor: pointer;
+    font-size: 16px;
+
+    /* 矢印を背景画像として最大化して配置 */
+    /* 下記の background-size で大きさを、position で位置を調整しています */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238b7969'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: calc(60% - 10px) center;
+    /* セレクトボックスの右端から10pxの位置 */
+    background-size: 50px !important;
+    /* ★ここを大きくすると矢印がさらに巨大になります */
+}
+
+/* IEなどの古いブラウザ対策（念のため） */
+.form__input--select select::-ms-expand {
+    display: none;
+}
+
+/* お問い合わせ内容のテキストエリアの余白も微調整（必要あれば） */
+textarea {
+    resize: vertical;
+    /* 上下のみサイズ変更可能に */
+    min-height: 150px;
+}

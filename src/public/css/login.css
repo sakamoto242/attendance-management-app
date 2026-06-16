@@ -1,0 +1,158 @@
+/* ページ全体の背景色（共通CSSに書いてもOK） */
+body {
+background-color: #f2eee9 !important;
+}
+
+.login__content {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 50px 0;
+
+}
+
+.login__heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login__heading h2 {
+    font-family: 'Inika', serif;
+    font-size: 32px;
+    color: #8b7969;
+    font-weight: normal;
+}
+
+/* 中央の白いカード */
+.login-form__card {
+background: #fff;
+    max-width: 600px;
+    /* 見本に近いサイズ感 */
+    margin: 0 auto;
+    padding: 60px 80px;
+    /* 内側に大きな余白を持たせる */
+    border-radius: 4px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.02);
+    /* ほぼ見えない程度の薄い影 */
+}
+
+.form__group {
+margin-bottom: 25px;
+}
+
+.form__group-title {
+    margin-bottom: 10px;
+}
+
+.form__label {
+    display: block;
+        font-size: 18px;
+        color: #8b7969;
+        margin-bottom: 10px;
+        /* ラベルと入力欄の隙間 */
+}
+
+.form__label--item {
+    font-size: 18px;
+    color: #8b7969;
+}
+
+.form__input input {
+width: 100%;
+    padding: 15px;
+    border: none;
+    background: #f4f4f4;
+    /* 見本の薄いグレー */
+    font-size: 14px;
+    color: #8b7969;
+    outline: none;
+}
+
+.form__input--text input {
+width: 100%;
+    padding: 12px;
+    border: none;
+    background: #f4f4f4;
+    /* 見本の薄グレー */
+    color: #8b7969;
+    outline: none;
+}
+
+.form__error {
+    height: 20px;
+        color: #ff0000;
+        font-size: 12px;
+        margin-top: 5px;
+}
+
+/* ログインボタン */
+.form__button {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.form__button-submit {
+    background: #8b7969;
+    color: #fff;
+    border: none;
+    padding:12px 60px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form__button-submit:hover {
+    opacity: 0.8;
+}
+
+/* --- 白いカードの幅を固定して中央に寄せる --- */
+.login-form__card {
+    background: #fff;
+    width: 100%;
+    /* スマホ等で崩れないよう基本は100% */
+    max-width: 600px;
+    /* ここが重要！見本のようなサイズ感にします */
+    margin: 0 auto;
+    padding: 60px 80px;
+    border-radius: 2px;
+    /* 見本に合わせて角丸を最小限に */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.01);
+    /* ほんの少しだけ影を付けると高級感が出ます */
+}
+
+/* --- 入力欄の「青色」や「枠線」を完全に消す --- */
+.form__input--text input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background: #f4f4f4;
+    font-size: 14px;
+    color: #8b7969;
+    outline: none;
+    /* クリックした時の黒い枠線を消す */
+}
+
+/* ブラウザの自動補完（青色）を白またはグレーで上書きする魔法のコード */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #f4f4f4 inset;
+    -webkit-text-fill-color: #8b7969;
+}
+
+/* --- ログインボタンを見本の「登録」ボタンと同じサイズ感に --- */
+.form__button-submit {
+    background: #8b7969;
+    color: #fff;
+    border: none;
+    padding: 12px 60px;
+    /* 横幅を少し広げる */
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    letter-spacing: 2px;
+    /* 文字の間隔を少し開けると綺麗です */
+}
+input:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px #f4f4f4 inset;
+        -webkit-text-fill-color: #8b7969;
+}

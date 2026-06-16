@@ -1,0 +1,90 @@
+/* ヘッダー全体の背景を真っ黒に固定 */
+.bg-black {
+    background-color: #000000 !important;
+}
+
+/* 検索バーの見た目調整（高さを抑えて角を丸く） */
+.navbar .form-control {
+    border-radius: 4px;
+    border: none;
+    padding: 8px 15px;
+}
+
+/* ナビゲーションリンクの文字（ログアウト・マイページ） */
+.navbar-dark .nav-link {
+    font-weight: bold;
+    color: #ffffff !important;
+    font-size: 15px;
+}
+
+/* 出品ボタン（白い四角いボタン） */
+.btn-light {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border-radius: 4px;
+    padding: 6px 20px;
+    border: none;
+}
+
+/* ロゴのフォント（太字で少し間隔をあける） */
+.navbar-brand {
+    letter-spacing: 1px;
+}
+
+/* 検索バーをよりイメージに近づける */
+.navbar .form-control {
+    border-radius: 8px;
+    /* 角をもう少し丸く */
+    height: 45px;
+    border: none;
+}
+
+/* 「出品」ボタンを少し大きく、文字を中央に */
+.btn-light {
+    padding: 8px 25px !important;
+    font-size: 16px;
+    border-radius: 5px !important;
+}
+
+/* ヘッダー全体の高さを微調整 */
+.navbar {
+    min-height: 80px;
+}
+
+/* 下のメインコンテンツとの間の余白を調整 */
+main.py-4 {
+    padding-top: 0 !important;
+    /* ヘッダー直下の余白を詰める */
+}
+
+/* セレクトボックス自体の見た目 */
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+/* クリックした（フォーカスした）時に青くする */
+select:focus {
+    border-color: #007bff;
+    /* 青色 */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+/* 1. マウスを乗せた時に枠線を青くする */
+select:hover {
+    border-color: #007bff;
+}
+
+/* 2. 選択肢（中身）の文字色などを指定（※ブラウザにより限界あり） */
+select option {
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* 3. 【重要】OS標準のグレーを打ち消して青く見せる工夫 */
+/* WindowsのChromeなどではこれを入れると選択時のアクセントが青くなりやすいです */
+select {
+    accent-color: #007bff;
+}

@@ -1,0 +1,83 @@
+/* register.css */
+
+/* 背景色を見本と同じに */
+body {
+    background-color: #f2eee9 !important;
+}
+
+.register__content {
+    padding: 60px 0;
+}
+
+.register__heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.register__heading h2 {
+    font-family: 'Inika', serif;
+    font-size: 32px;
+    color: #8b7969;
+    font-weight: normal;
+}
+
+/* 白いカードの設定 */
+.register-form__card {
+    background: #fff;
+    width: 90%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 60px 100px;
+    /* 余白をたっぷりとる */
+    border-radius: 4px;
+}
+
+/* 各項目を縦に並べる */
+.form__group {
+    margin-bottom: 30px;
+    text-align: left;
+    /* 左寄せにする */
+}
+
+/* ラベルを入力欄の上に配置 */
+.form__label {
+    display: block;
+    /* これで強制的に改行されて上に行きます */
+    font-size: 18px;
+    color: #8b7969;
+    margin-bottom: 10px;
+}
+
+/* 入力欄のデザイン */
+.form__input input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background: #f4f4f4;
+    /* 薄いグレー */
+    color: #8b7969;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+/* 入力欄の「青色」を消す */
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #f4f4f4 inset !important;
+    -webkit-text-fill-color: #8b7969 !important;
+}
+
+/* 登録ボタン */
+.form__button {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.form__button-submit {
+    background: #8b7969;
+    color: #fff;
+    border: none;
+    padding: 12px 60px;
+    font-size: 16px;
+    cursor: pointer;
+}

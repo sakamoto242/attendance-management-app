@@ -1,0 +1,123 @@
+/* --- 確認画面：テーブル全体の調整 --- */
+.confirm-table {
+    width: 100%;
+    border-collapse: collapse;
+    /* 外側の4辺すべてに線を引く */
+    border: 1px solid #e0dfde !important;
+    margin-bottom: 40px;
+}
+
+/* 2. 各行の横線と左右の枠 */
+.confirm-table th,
+.confirm-table td {
+    padding: 25px 30px;
+    text-align: left;
+    /* ★重要：各行の下線 */
+    border-bottom: 1px solid #e0dfde !important;
+}
+
+/* 3. 一番右側の縦線（赤丸の右側部分）が欲しい場合 */
+.confirm-table th {
+    background-color: #8b7969 !important;
+    color: #ffffff !important;
+    width: 30%;
+    font-weight: normal;
+    /* ★重要：茶色と白の境目の縦線 */
+    border-right: 1px solid #e0dfde !important;
+}
+
+/* 4. 左側の縦線（茶色の背景の左端） */
+.confirm-table td {
+    background-color: #ffffff !important;
+    color: #8b7969 !important;
+    /* ★重要：一番右側の縦線（赤丸の箇所） */
+    border-right: 1px solid #e0dfde !important;
+}
+
+/* 最後の行の二重線を防ぐ */
+.confirm-table tr:last-child th,
+.confirm-table tr:last-child td {
+    border-bottom: none !important;
+    }
+
+/* 各行の下線だけを表示 */
+.confirm-table__row {
+    border-bottom: 1px solid #e0dfde !important;
+}
+
+/* 左側の見出し：茶色の背景 */
+.confirm-table__header {
+    background-color: #8b7969 !important;
+    /* 濃いめの茶色 */
+    color: #ffffff !important;
+    width: 30%;
+    text-align: left;
+    font-weight: normal;
+    border-right: 1px solid #e0dfde !important;
+        /* 縦線を守る */
+    /* 縦線を完全に消す */
+}
+
+/* 右側の入力内容：白背景 */
+.confirm-table__text {
+    background-color: #ffffff !important;
+    color: #8b7969 !important;
+    /* 縦線を完全に消す */
+}
+
+/* 見出し「Confirm」の調整 */
+.confirm__heading h2 {
+    font-size: 32px;
+    text-align: center;
+    margin: 20px 0 60px;
+    color: #8b7969;
+    font-family: "Garamond", serif;
+}
+/* --- ボタンエリア：横並びを確定 --- */
+.form__button {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 40px !important;
+    /* ボタンとリンクの間の隙間 */
+    margin: 80px auto 120px !important;
+    width: 100% !important;
+}
+
+/* 送信ボタン：paddingでサイズを作る（height指定はNG） */
+.form__button-submit {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    background-color: #8b7969 !important;
+    color: #ffffff !important;
+
+    /* 重要：上下左右にしっかり余白を作る */
+    padding: 15px 60px !important;
+
+    border: none !important;
+    font-size: 16px !important;
+    cursor: pointer;
+
+    /* 重要：文字を中央に固定し、沈み込みを防ぐ */
+    line-height: 1.0 !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    white-space: nowrap !important;
+}
+
+.form__button-submit:hover {
+    background-color: #7a6a5c !important;
+}
+
+/* 修正ボタン（またはリンク）：送信ボタンと高さを合わせる */
+.form__button-edit,
+.form__button-back {
+    color: #8b7969 !important;
+    text-decoration: underline !important;
+    background: none !important;
+    border: none !important;
+    font-size: 16px !important;
+    cursor: pointer;
+    line-height: 1.0 !important;
+    padding: 10px 0 !important;
+}
