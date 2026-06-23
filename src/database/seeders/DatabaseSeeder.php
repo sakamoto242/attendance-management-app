@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            SeasonSeeder::class,
             CategorySeeder::class,
             ProductSeeder::class,
             AdminSeeder::class, // 管理者アカウント作成用
