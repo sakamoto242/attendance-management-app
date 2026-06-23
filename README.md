@@ -1,43 +1,12 @@
-Markdown
-# COACHTECH フリマ（フリマアプリ）
+# 勤怠管理アプリ
 
-ユーザー間で商品を売買できる、Stripe決済機能を搭載したフリマアプリケーションです。
+## プロジェクト概要
+スタッフの勤怠管理および申請業務を行うアプリケーションです。
 
-## 1. 環境構築
-
-### Dockerビルド
-1. **リポジトリのクローンと移動**
-   ```bash
-   git clone [https://github.com/sakamoto242/coachtech-furima.git](https://github.com/sakamoto242/coachtech-furima.git)
-   cd coachtech-furima
-Laravel環境構築
-コンテナ内へログイン
-
-docker-compose exec php bash
-初期設定（コンテナ内）
-
-
-composer install
-php artisan key:generate
-php artisan migrate --seed
-2. 使用技術
-PHP 8.x
-
-Laravel 10.x
-MySQL 8.0
-Stripe API (決済処理)
-
-3. Stripe 決済の準備（ローカル開発環境）
-Stripe CLIを使用してWebhookの転送を開始します。
-
-
-.\stripe listen --forward-to localhost/stripe/webhook
-※表示された whsec_... を .env の STRIPE_WEBHOOK_SECRET に設定してください。
-
-## ER図
-![ER図](https://github.com/sakamoto242/coachtech-furima/blob/main/erd.png?raw=true)
-
-
- URL
-開発環境: http://localhost/
-phpMyAdmin: http://localhost:8080/
+## 環境構築
+1. Dockerを起動する
+2. プロジェクト直下で、以下のコマンドを実行する
+```bash
+   make init
+メール認証mailtrapというツールを使用しています。以下のリンクから会員登録をしてください。https://mailtrap.io/メールボックスのIntegrationsから「Laravel 7.x and 8.x」（またはお使いのバージョン）を選択し、.env ファイルの MAIL_MAILER から MAIL_ENCRYPTION までの項目をコピー＆ペーストしてください。MAIL_FROM_ADDRESS には任意のメールアドレスを入力してください。ルート・コントローラー・ビュー設計一覧画面名称パスメソッドコントローラー / アクション認証bladeファイル名会員登録画面（一般）/registerGETPOSTRegisteredUserController@createRegisteredUserController@store不要auth.registerログイン画面（一般）/loginGETPOSTAuthenticatedSessionController@createAuthenticatedSessionController@store不要auth.login出勤登録画面（一般）/attendanceGETPOSTAttendanceController@indexAttendanceController@store必須attendance.index勤怠一覧画面（一般）/attendance/listGETAttendanceController@list必須attendance.list勤怠詳細画面（一般）/attendance/detail/{id}GETPOSTAttendanceController@detailAttendanceController@update必須attendance.detail申請一覧画面（一般）/stamp_correction_request/listGETStampCorrectionRequestController@list必須request.listログイン画面（管理者）/admin/loginGETPOSTAdmin\AuthenticatedSessionController@createAdmin\AuthenticatedSessionController@store不要admin.login勤怠一覧画面（管理者）/admin/attendance/listGETAdmin\AttendanceController@list必須admin.attendance.list勤怠詳細画面（管理者）admin/attendance/{id}GETPOSTAdmin\AttendanceController@detailAdmin\AttendanceController@update必須admin.attendance.detailスタッフ一覧画面（管理者）/admin/staff/listGETAdmin\StaffController@list必須admin.staff.listスタッフ別勤怠一覧（管理者）/admin/attendance/staff/{id}GETAdmin\AttendanceController@staff必須admin.attendance.staff申請一覧画面（管理者）/stamp_correction_request/listGETAdmin\StampCorrectionRequestController@list必須admin.request.list修正申請承認画面（管理者）/stamp_correction_request/approve/{id}GETPOSTAdmin\StampCorrectionRequestController@showAdmin\StampCorrectionRequestController@approve必須admin.request.approveモデル設計モデルファイル名説明User.php一般ユーザー（従業員）および管理者のアカウント情報を管理するモデル。Attendance.php日々の出勤・退勤・休憩開始・休憩終了の時刻や日付を記録するモデル。Rest.php1回の勤務に対して複数回発生する可能性のある「休憩時間」を個別に記録するモデル。StampCorrectionRequest.phpユーザーから提出された「勤怠修正申請」の状態（承認待ち・承認済みなど）を管理するモデル。バリデーション設計バリデーションファイル名対象フォームルール（概要）RegisterRequest.php会員登録フォームname: 必須email: 必須、メール形式、重複不可password: 必須、8文字以上、確認用一致LoginRequest.phpログインフォームemail: 必須、メール形式password: 必須AttendanceRequest.php打刻申請フォームuser_id: 必須、存在するユーザーID二重打刻（同日に出勤が2回など）のチェックStampCorrectionRequest.php勤怠修正・申請フォームdate: 必須、日付形式clock_in: 必須、時刻形式clock_out: 必須、時刻形式（出勤より後の時刻であること）reason: 必須、文字列（理由の記入）ER図テストアカウント一般ユーザーログインURL: http://localhost/loginメールアドレス: test3@test.comパスワード: 3333333333管理者ユーザーログインURL: http://localhost/admin/loginメールアドレス: admin@example.comパスワード: passwordPHPUnitを利用したテストに関して本アプリケーションには、機能が正しく動作するかを検証するための自動テスト（PHPUnit）が導入されています。テストの実行手順Dockerコンテナ内に入るコンテナが起動している状態で、以下のコマンドでコンテナ内に入ります。Bash   docker-compose exec php bash
+テストコマンドを実行するコンテナ内のプロジェクト直下で以下のコマンドを実行し、すべてのテストが通過することを確認します。Bash   php artisan test
