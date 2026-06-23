@@ -7,14 +7,14 @@
 
 1. Dockerを起動する
 2. プロジェクト直下で、以下のコマンドを実行する
-   → `make init`
+   make init
 
 ### メール認証
 mailtrapというツールを使用しています。
 以下のリンクから会員登録をしてください。
 https://mailtrap.io/
 
-メールボックスのIntegrationsから「Laravel 7.x and 8.x」（またはお使いのバージョン）を選択し、 `.env` ファイルの `MAIL_MAILER` から `MAIL_ENCRYPTION` までの項目をコピー＆ペーストしてください。
+メールボックスのIntegrationsから「Laravel 7.x and 8.x」（またはお使いのバージョン）を選択し、 .env ファイルの MAIL_MAILER から MAIL_ENCRYPTION までの項目をコピー＆ペーストしてください。
 `MAIL_FROM_ADDRESS` には任意のメールアドレスを入力してください。
 
 ---
@@ -86,10 +86,8 @@ https://mailtrap.io/
 
 ### テストの実行手順
 
-1. **Dockerコンテナ内に入る**
-   コンテナが起動している状態で、以下のコマンドでコンテナ内に入ります。
-   → `docker-compose exec php bash`
+1. Dockerコンテナ内に入る
+   コマンド: docker-compose exec php bash
 
-2. **テストコマンドを実行する**
-   コンテナ内のプロジェクト直下で以下のコマンドを実行し、すべてのテストが通過することを確認します。
-   → `php artisan test`
+2. テストコマンドを実行する
+   コマンド: php artisan test
