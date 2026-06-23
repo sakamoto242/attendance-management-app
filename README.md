@@ -63,7 +63,7 @@ https://mailtrap.io/
 
 ## ER図
 
-![ER図](erd.png)
+![ER図](erd.png.png)
 
 ---
 
